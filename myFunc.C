@@ -1,6 +1,8 @@
 void myFunc()
 {
 
+    TRandom3 rng(10);
+
     //Create output file
     auto file = TFile::Open("myfile.root", "RECREATE");
 
@@ -10,7 +12,7 @@ void myFunc()
     f1->Draw();
 
     auto h1 = new TH1F("h1","test",100,-3,3);
-    h1->FillRandom("fa",2000);
+    h1->FillRandom("fa",2000, &rng);
 
     f1->SetParameters(0.1,1.0,11);
     h1->Fit("fa");
