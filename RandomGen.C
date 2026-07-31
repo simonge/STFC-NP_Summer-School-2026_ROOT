@@ -15,8 +15,11 @@ void RandomGen( uint seed = 0 )
     // ===================================================
 
     TRandom3 rng2(seed);
-    double randomnumber = rng2.Rndm();
-    std::cout << "Random number: " << randomnumber << std::endl;
+    double randomnumber;
+    for (size_t i=0; i<5; ++i) {
+        randomnumber = rng2.Rndm();
+        std::cout << "Random number: " << i << " : "<< randomnumber << std::endl;
+    }
 
     const size_t N = 10000000;
 
